@@ -20,7 +20,7 @@ const SkillsColumn = ({ title, icon, skills }) => (
     <ResumeTitle title={title} icon={icon} />
     <div className="py-4">
       {skills.map((skill) => (
-        <SkillItem {...skill} />
+        <SkillItem key={skill.title} {...skill} />
       ))}
     </div>
   </div>
