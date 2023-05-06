@@ -21,6 +21,9 @@ const Home = () => {
   const [blog, setBlog] = useState(false);
   const [contact, setContact] = useState(false);
   const [sidenav, setSidenav] = useState(false);
+  const [blogRef, setBlogRef] = useState<React.RefObject<HTMLDivElement>>(
+    React.createRef()
+  );
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -32,27 +35,36 @@ const Home = () => {
         setSidenav(false);
       }
     };
-  
+
     document.body.addEventListener("click", handleClickOutside);
-  
+
     return () => {
       document.body.removeEventListener("click", handleClickOutside);
     };
   }, []);
-  
 
   const handleMenuClick = (
     about: boolean | ((prevState: boolean) => boolean),
     resume: boolean | ((prevState: boolean) => boolean),
     projects: boolean | ((prevState: boolean) => boolean),
     blog: boolean | ((prevState: boolean) => boolean),
-    contact: boolean | ((prevState: boolean) => boolean)
+    contact: boolean | ((prevState: boolean) => boolean),
+    postIndex?: number
   ) => {
     setAbout(about);
     setResume(resume);
     setProjects(projects);
     setBlog(blog);
     setContact(contact);
+    if (postIndex !== undefined && blogRef.current) {
+      const blogComponent = blogRef.current.querySelector("div");
+      if (blogComponent) {
+        const handlePostClick = (blogComponent as any).handlePostClick;
+        if (handlePostClick) {
+          handlePostClick(postIndex);
+        }
+      }
+    }
   };
 
   return (
@@ -76,15 +88,24 @@ const Home = () => {
         {sidenav && (
           <div className="w-full h-screen fixed top-0 left-0  bg-black bg-opacity-50 z-50">
             <div className="w-96 h-full relative">
-              <motion.div 
-                initial={{ x: -500, opacity: 0}}
-                animate={{ x: 0, opacity: 1}}
+              <motion.div
+                initial={{ x: -500, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="w-full h-full bg-bodyColor overflow-y-scroll scrollbar-thin scrollbar-thumb-[#646464]">
-              <Sidenav />
-              <span onClick={()=>setSidenav(false)} className="absolute top-0 -right-16 w-12 h-12 bg-bodyColor text-2xl text-textColor hover:text-designColor duration-300 cursor-pointer flex items-center justify-center z-50">
-                <MdOutlineClose />
-              </span>
+                className="w-full h-full bg-bodyColor overflow-y-scroll scrollbar-thin scrollbar-thumb-[#646464]"
+              >
+                <Sidenav
+                  handleMenuClick={handleMenuClick}
+                  handleBlogClick={(postIndex) =>
+                    handleMenuClick(false, false, false, true, false, postIndex)
+                  }
+                />
+                <span
+                  onClick={() => setSidenav(false)}
+                  className="absolute top-0 -right-16 w-12 h-12 bg-bodyColor text-2xl text-textColor hover:text-designColor duration-300 cursor-pointer flex items-center justify-center z-50"
+                >
+                  <MdOutlineClose />
+                </span>
               </motion.div>
             </div>
           </div>

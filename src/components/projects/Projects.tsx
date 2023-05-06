@@ -52,8 +52,8 @@ const Projects = () => {
           <ProjectCard
             title="ECEFG"
             category="Logos and Marketing"
-            image="/ecefglogo.png"
-            href="/ecefglogo.png"
+            image="/ecefgLogo.png"
+            href="/ecefgLogo.png"
           />
         </div>
         <div className="px-6">

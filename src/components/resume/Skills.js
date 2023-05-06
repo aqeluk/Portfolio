@@ -27,46 +27,64 @@ const SkillsColumn = ({ title, icon, skills }) => (
 );
 
 const Skills = () => {
-  const designSkills = [
-    { title: "Web Development", percentage: "95%" },
-    { title: "Web Design", percentage: "95%" },
-    { title: "Mobile Application", percentage: "95%" },
-    { title: "UI Design", percentage: "95%" },
+  const codingSkills = [
+    { title: "Python", percentage: "85%" },
+    { title: "Java", percentage: "75%" },
+    { title: "Go", percentage: "80%" },
+    { title: "React/NextJS", percentage: "80%" },
+    { title: "Tailwind-CSS", percentage: "85%" },
   ];
 
-  const languageSkills = [
-    { title: "English", percentage: "95%" },
-    { title: "Pashto", percentage: "95%" },
-    { title: "Farsi", percentage: "95%" },
+  const backendSkills = [
+    { title: "Gin", percentage: "65%" },
+    { title: "FastAPI", percentage: "85%" },
+    { title: "Node.js", percentage: "55%" },
   ];
+
+  const toolsSkills = [
+    { title: "Docker", percentage: "75%" },
+    { title: "MySQL", percentage: "80%" },
+    { title: "PostgreSQL", percentage: "90%" },
+    { title: "MongoDB", percentage: "70%" },
+  ];
+  
+  const methodologiesSkills = [
+    { title: "Jira", percentage: "85%" },
+    { title: "Trac", percentage: "70%" },
+    { title: "Git", percentage: "90%" },
+    { title: "SVN", percentage: "75%" },
+    { title: "Scrum", percentage: "80%" },
+    { title: "Kanban", percentage: "95%" },
+  ];
+
 
   return (
     <div className="w-full grid grid-cols-9 px-6">
       <SkillsColumn
-        title="Design"
-        icon={<SiArtstation />}
-        skills={designSkills}
-      />
-      <div className="w-full h-full flex justify-center items-center">
-        <span className="w-[1px] h-full bg-zinc-800 inline-flex"></span>
-      </div>
-      <SkillsColumn
-        title="Knowledge"
-        icon={<FaFlag />}
-        skills={languageSkills}
-      />
-      <SkillsColumn
         title="Coding"
         icon={<SiArtstation />}
-        skills={designSkills}
+        skills={codingSkills}
       />
       <div className="w-full h-full flex justify-center items-center">
         <span className="w-[1px] h-full bg-zinc-800 inline-flex"></span>
       </div>
       <SkillsColumn
-        title="Languages"
+        title="API Development"
         icon={<FaFlag />}
-        skills={languageSkills}
+        skills={backendSkills}
+      />
+      <SkillsColumn
+        title="Project Management"
+        icon={<FaFlag />}
+        skills={methodologiesSkills}
+      />
+      <div className="w-full h-full flex justify-center items-center">
+        <span className="w-[1px] h-full bg-zinc-800 inline-flex"></span>
+      </div>
+      <SkillsColumn
+        title="Tools"
+        icon={<SiArtstation />}
+        skills={toolsSkills}
       />
     </div>
   );
