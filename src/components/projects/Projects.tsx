@@ -22,37 +22,37 @@ const Projects = () => {
           <ProjectCard
             title="Sustainable-Energy Website"
             category="Web Development"
-            image={ecefg}
+            image="/ecefg.png"
             href="https://comeandfindme.vercel.app/"
           />
           <ProjectCard
             title="Java VirtualCafe"
             category="Backend Development"
-            image={virtualCafe}
+            image="/virtualCafe.png"
             href="https://github.com/aqeluk/virtualCafe"
           />
           <ProjectCard
             title="Childminding Website"
             category="Web Development"
-            image={aStar}
+            image="/astar.png"
             href="https://astarchildminding.vercel.app/"
           />
           <ProjectCard
             title="Python Scientific Calculator"
             category="Backend XP Development"
-            image={PySciCalc}
+            image="/PySciCalc.png"
             href="https://github.com/aqeluk/PythonSciCalc"
           />
           <ProjectCard
             title="Little Wonders"
             category="Logos and Marketing"
-            image={littleHands}
+            image="/littleHandsLogo.png"
             href="/littleHandsLogo.png"
           />
           <ProjectCard
             title="ECEFG"
             category="Logos and Marketing"
-            image={ecefgLogo}
+            image="/ecefglogo.png"
             href="/ecefglogo.png"
           />
         </div>
@@ -61,31 +61,31 @@ const Projects = () => {
           <ProjectCard
             title="Marketing Website"
             category="Web Development"
-            image={thynk}
+            image="/thynkunlimited.png"
             href="https://thynk.vercel.app/"
           />
           <ProjectCard
             title="Web Application"
             category="Full-Stack Development"
-            image={thynkApp}
+            image="/thynkapplication.png"
             href="https://thynk.vercel.app/dashboard"
           />
           <ProjectCard
             title="Application API"
             category="Backend Development"
-            image={thynkAPI}
+            image="/thynkapi.png"
             href="https://thynkunlimited.herokuapp.com"
           />
           <ProjectCard
             title="Documentation Website"
             category="Full-Stack Development"
-            image={thynkDocs}
+            image="/thynkdocs.png"
             href="https://thynk-docs.vercel.app/"
           />
           <ProjectCard
             title="THYNK"
             category="Logos and Marketing"
-            image={thynkLogo}
+            image="/thynk.png"
             href="/thynk.png"
           />
         </div>

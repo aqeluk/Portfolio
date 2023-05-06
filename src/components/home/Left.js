@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaTiktok, FaYoutube } from "react-icons/fa";
 import { FiMail, FiSend } from "react-icons/fi";
 import Image from 'next/image';
 
-const Left = () => {
+const Left = ({ handleMenuClick }) => {
     const [roles]=useTypewriter({
         words: ["Full-Stack Web Developer", "UI/UX Web Design Developer", "Backend Software Developer", "Software Engineer"],
         loop:true,
@@ -14,22 +14,24 @@ const Left = () => {
         delaySpeed:2000
     });
   return (
-    <div className='w-5/12 h-full bg-bodyColor rounded-2xl shadow-testShadow z-10'>
+    <div className='w-5/12 h-full bg-bodyColor rounded-2xl shadow-testShadow z-10 flex flex-col justify-between overflow-hidden' >
         <div className='w-full h-3/5'>
             <Image 
                 className='w-full h-full object-cover rounded-2xl' 
                 src='/bannerImg.png'
                 alt="bannerImage"
-                loading='priority' 
+                loading='eager' 
+                width={400}
+                height={500}
             />
         </div>
-        <div className='w-full h-2/5'>
+        <div className='w-full h-2/5 flex flex-col justify-between'>
             <div className='flex flex-col items-center gap-2 py-10'>
                 <h1 className='text-textColor text-4xl font-semibold'>Uzair A. Popalzai</h1>
                 <p className='test-base text-designColor tracking-wide'>
                     {roles} <Cursor cursorBlinking="false" cursorStyle="|" />
                 </p>
-                <div className='flex justify-center gap-2 mt-2'>
+                <div className='flex justify-center gap-4 mt-2'>
                     <span className='hover:text-designColor duration-300 cursor-pointer text-xl'>
                         <FaGithub />
                     </span>
@@ -58,7 +60,9 @@ const Left = () => {
                         Download CV <BsCloudLightningFill />
                     </button>
                 </a>
-                <button className='w-1/2 border-t-[1px] border-t-zinc-800 text-sm tracking-wide uppercase flex justify-center items-center gap-2 hover:text-designColor duration-300'>
+                <button 
+                onClick={() => handleMenuClick(false, false, false, false, true)}
+                className='w-1/2 border-t-[1px] border-t-zinc-800 text-sm tracking-wide uppercase flex justify-center items-center gap-2 hover:text-designColor duration-300'>
                     Contact Me <FiSend />
                 </button>
             </div>

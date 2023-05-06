@@ -138,7 +138,7 @@ const Home = () => {
         </div>
       </div>
       <div className="w-[94%] h-full bg-transparent flex items-center">
-        <Left />
+        <Left handleMenuClick={handleMenuClick} />
         <div className="w-8/12 h-[95%] bg-bodyColor">
           <div className="w-full h-[96%] overflow-y-scroll scrollbar-thin scrollbar-thumb-[#646464]">
             {about && (
